@@ -1,0 +1,95 @@
+(defpoll timedata
+    :interval "5s"
+    :initial "Clock"
+    :run-while true
+`date +%H:%M`)
+
+(defpoll volumevar
+    :interval "1s"
+    :initial "0"
+    :run-while true
+`amixer -D pipewire sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%' | head -1`)
+
+(defpoll workspacesvar
+    :interval "0.1s"
+    :initial "0"
+    :run-while true
+`./scripts/workspaces.d`)
+
+(defpoll calendardata
+    :interval "10s"
+    :initial ""
+    :run-while true
+    `./scripts/calendar.d`)
+
+(defwidget clock [] (button :onclick `eww open takvim` :class "my-clock" (label :text timedata)))
+
+(defwindow takvim
+    :monitor 0
+    :geometry (geometry :x "50%"
+                        :y "0%"
+                        :width "30%"
+                        :height "30%"
+                        :anchor "top center")
+    :stacking "overlay"
+    (box :class "confirmexit-box" :orientation "vertical" :spacing 15
+        (literal :content calendardata)
+    )
+)
+
+
+(defwindow confirmexit
+    :monitor 0
+    :rounded true
+    :roundness 5
+    :geometry (geometry :x "50%"
+                        :y "50%"
+                        :width "30%"
+                        :height "30%"
+                        :anchor "center")
+    :stacking "overlay"
+    (box :class "confirmexit-box" :orientation "vertical" :spacing 15
+        (button :onclick "shutdown -P now" "Shutdown")
+        (button :onclick "shutdown -r now" "Reboot")
+        (button :onclick "hyprctl dispatch exit" "Logout")
+        (button :onclick "eww close confirmexit" "Cancel")
+    )
+    )
+
+(defwindow bar
+    :monitor 0
+    :geometry (geometry :x "0%"
+                        :y "0%"
+                        :width "100%"
+                        :height "3%"
+                        :anchor "top center")
+    :stacking "fg"
+    :reserve (struts :distance "3%" :side "top")
+    :exclusive true
+(box :orientation "horizontal" :class "bar-box"
+
+    (box :class "begin-box"
+    (box :halign "start" :spacing 10
+    (literal :content workspacesvar)
+    ))
+    
+    (box :class "center-box" :halign "center" :space-evenly false
+    (clock))
+
+    (box :class "end-box"
+    (systray 
+    :icon-size 20)
+    (box :spacing 5 :space-evenly false :halign "end"
+    (button :halign "end" 
+    "  %${volumevar}")
+    (button :halign "end" 
+    "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}°C")
+    (button :halign "end" 
+    "%${EWW_BATTERY.BAT0.capacity}")
+    (button
+        :halign "end"
+        :onclick `eww open confirmexit`
+    "⏻ ")
+    )
+    )
+))

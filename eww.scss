@@ -1,0 +1,79 @@
+.bar {
+    background-color: transparent;
+    color: white;
+}
+
+.my-clock {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 2em;
+    background-color: rgba(0.2, 0.2, 0.2, 0.7);
+    font-size: 20px;
+}
+
+.calendar-text {
+    color: white;
+}
+
+.calendar-cell-days {
+    color: white;
+    border-width: 2px;
+    background-color: #001f26;
+    border-radius: 0.5em;
+    font-size: 1.5rem;
+    margin: 5px;
+}
+
+.calendar-cell-today {
+    color: white;
+    border-width: 2px;
+    background-color: #0098ba;
+    border-radius: 0.5em;
+    font-size: 1.5rem;
+    margin: 5px;
+}
+
+.calendar-cell {
+    color: white;
+    border-width: 2px;
+    background-color: #004b5c;
+    border-radius: 0.5em;
+    font-size: 1.5rem;
+    margin: 5px;
+}
+
+.calender-label {
+    color: white;
+    font-family: IosevkaTermNerdFont;
+}
+
+.calender-close {
+    
+}
+
+.bar-box {
+    border-radius: 25em;
+}
+
+.end-box {
+}
+
+button {
+    border-width: 0;
+    border-radius: 2em;
+    background: #004b5c;
+    text-shadow: none;
+    color: white;
+    outline-width: 0;
+    box-shadow: none;
+    font-size: 16px;
+}
+
+.active-workspace {
+    background-color: #0098ba;
+}
+
+.confirmexit-box {
+    background-color: #001f26;
+    padding: 20px;
+}
