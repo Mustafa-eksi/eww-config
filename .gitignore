@@ -1,0 +1,4 @@
+*.o
+scripts/calendar
+scripts/thunderbird_sync
+scripts/workspaces

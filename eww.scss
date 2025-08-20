@@ -15,31 +15,35 @@
     color: white;
 }
 
+.calendar-cell-event {
+    background-color: #00a658;
+    color: red;
+}
+
+.cal-top-bar {
+  margin-bottom: 10px;
+}
+
 .calendar-cell-days {
     color: white;
     border-width: 2px;
-    background-color: #001f26;
-    border-radius: 0.5em;
     font-size: 1.5rem;
-    margin: 5px;
+    margin-top: 3px;
+    background-color: #001f26;
+    border-style: none;
+}
+
+.calendar-cell-base {
+    color: white;
+    border-width: 2px;
+    font-size: 1.5rem;
+    margin-top: 3px;
+    border-style: solid;
+    border-color: #004b5c;
 }
 
 .calendar-cell-today {
-    color: white;
-    border-width: 2px;
     background-color: #0098ba;
-    border-radius: 0.5em;
-    font-size: 1.5rem;
-    margin: 5px;
-}
-
-.calendar-cell {
-    color: white;
-    border-width: 2px;
-    background-color: #004b5c;
-    border-radius: 0.5em;
-    font-size: 1.5rem;
-    margin: 5px;
 }
 
 .calender-label {

@@ -14,15 +14,15 @@
     :interval "0.1s"
     :initial "0"
     :run-while true
-`./scripts/workspaces.d`)
+`./scripts/workspaces`)
 
 (defpoll calendardata
-    :interval "10s"
+    :interval "1min"
     :initial ""
     :run-while true
-    `./scripts/calendar.d`)
+    `./scripts/calendar`)
 
-(defwidget clock [] (button :onclick `eww open takvim` :class "my-clock" (label :text timedata)))
+(defwidget clock [] (button :onclick `eww open --toggle takvim` :class "my-clock" (label :text timedata)))
 
 (defwindow takvim
     :monitor 0
@@ -88,7 +88,7 @@
     "%${EWW_BATTERY.BAT0.capacity}")
     (button
         :halign "end"
-        :onclick `eww open confirmexit`
+        :onclick `eww open --toggle confirmexit`
     "⏻ ")
     )
     )
