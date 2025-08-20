@@ -1,58 +1,46 @@
+// Tokyo night
+/*
+$dark-background-color: #1a1b26;
+$base-background-color: #24283b;
+$active-background-color: #5a3e8e;
+$secondary-background-color: #006c86;
+$foreground-color: #a9b1d6;
+$calendar-border: $base-background-color;
+*/
+
+// Made up green
+$dark-background-color: #002106;
+$base-background-color: #00380a;
+$active-background-color: #197829;
+$secondary-background-color: #228eb5;
+$foreground-color: #b5ffc2;
+$calendar-border: $base-background-color;
+
+// Original black
+/*
+$dark-background-color: #001f26;
+$base-background-color: #004b5c;
+$active-background-color: #0098ba;
+$secondary-background-color: #00a658;
+$foreground-color: white;
+$calendar-border: $base-background-color;
+*/
+
+// Made up white
+/*
+$dark-background-color: #ffffff;
+$base-background-color: #b5fdff;
+$active-background-color: #5df8fc;
+$secondary-background-color: #a6ffb2;
+$foreground-color: black;
+$calendar-border: $foreground-color;
+*/
+
 .bar {
-    background-color: transparent;
-    color: white;
-}
-
-.my-clock {
-    padding-left: 10px;
-    padding-right: 10px;
+    background-color: rgba($dark-background-color, 1);
     border-radius: 2em;
-    background-color: rgba(0.2, 0.2, 0.2, 0.7);
-    font-size: 20px;
-}
-
-.calendar-text {
-    color: white;
-}
-
-.calendar-cell-event {
-    background-color: #00a658;
-    color: red;
-}
-
-.cal-top-bar {
-  margin-bottom: 10px;
-}
-
-.calendar-cell-days {
-    color: white;
-    border-width: 2px;
-    font-size: 1.5rem;
-    margin-top: 3px;
-    background-color: #001f26;
-    border-style: none;
-}
-
-.calendar-cell-base {
-    color: white;
-    border-width: 2px;
-    font-size: 1.5rem;
-    margin-top: 3px;
-    border-style: solid;
-    border-color: #004b5c;
-}
-
-.calendar-cell-today {
-    background-color: #0098ba;
-}
-
-.calender-label {
-    color: white;
-    font-family: IosevkaTermNerdFont;
-}
-
-.calender-close {
-    
+    color: $foreground-color;
+    padding: 2px;
 }
 
 .bar-box {
@@ -62,22 +50,102 @@
 .end-box {
 }
 
+.my-clock {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 2em;
+    background-color: $base-background-color;
+    font-size: 20px;
+}
+
+.gtk-calendar {
+  padding: 5px;
+  color: $foreground-color;
+  background-color: $dark-background-color;
+  border-style: none;
+  &.header {
+    background-color: $base-background-color;
+  }
+  &.button {
+    background-color: $base-background-color;
+    &:hover {
+      color: rgb(230, 100, 100);
+    }
+  }
+  &:indeterminate {
+    color: rgba(205, 212, 246, 0.4);
+  }
+  &.highlight {
+    color: $active-background-color;
+  }
+  &:selected {
+    border-style: solid;
+    color: $secondary-background-color;
+  }
+  font-size: 1em;
+  padding: 0.2em;
+}
+
+.calendar-text {
+    color: $foreground-color;
+}
+
+.calendar-cell-event {
+    background-color: $secondary-background-color;
+    color: red;
+}
+
+.cal-top-bar {
+  margin-bottom: 10px;
+}
+
+.calendar-cell-days {
+    color: $foreground-color;
+    border-width: 2px;
+    font-size: 1.5rem;
+    margin-top: 3px;
+    background-color: $dark-background-color;
+    border-style: none;
+}
+
+.calendar-cell-base {
+    color: $foreground-color;
+    border-width: 2px;
+    font-size: 1.5rem;
+    margin-top: 3px;
+    border-style: solid;
+    border-color: $calendar-border;
+}
+
+.calendar-cell-today {
+    background-color: $active-background-color;
+}
+
+.calender-label {
+    color: $foreground-color;
+    font-family: IosevkaTermNerdFont;
+}
+
+.calender-close {
+    
+}
 button {
     border-width: 0;
     border-radius: 2em;
-    background: #004b5c;
+    background: $base-background-color;
     text-shadow: none;
-    color: white;
+    color: $foreground-color;
     outline-width: 0;
     box-shadow: none;
     font-size: 16px;
 }
 
 .active-workspace {
-    background-color: #0098ba;
+    background-color: $active-background-color;
 }
 
 .confirmexit-box {
-    background-color: #001f26;
+    background-color: $dark-background-color;
     padding: 20px;
 }
+

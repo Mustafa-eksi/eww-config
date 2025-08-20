@@ -27,7 +27,7 @@
 (defwindow takvim
     :monitor 0
     :geometry (geometry :x "50%"
-                        :y "0%"
+                        :y "1%"
                         :width "30%"
                         :height "30%"
                         :anchor "top center")
@@ -59,8 +59,8 @@
 (defwindow bar
     :monitor 0
     :geometry (geometry :x "0%"
-                        :y "0%"
-                        :width "100%"
+                        :y "0.3%"
+                        :width "99.7%"
                         :height "3%"
                         :anchor "top center")
     :stacking "fg"
@@ -77,19 +77,12 @@
     (clock))
 
     (box :class "end-box"
-    (systray 
-    :icon-size 20)
-    (box :spacing 5 :space-evenly false :halign "end"
-    (button :halign "end" 
-    "  %${volumevar}")
-    (button :halign "end" 
-    "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}°C")
-    (button :halign "end" 
-    "%${EWW_BATTERY.BAT0.capacity}")
-    (button
-        :halign "end"
-        :onclick `eww open --toggle confirmexit`
-    "⏻ ")
-    )
+        (systray :icon-size 20)
+        (box :spacing 5 :space-evenly false :halign "end"
+            (button :halign "end" "  %${volumevar}")
+            (button :halign "end" "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}°C")
+            (button :halign "end" "%${eww_battery.bat0.gapacity}")
+            (button :halign "end" :onclick `eww open --toggle confirmexit` "⏻ ")
+        )
     )
 ))
