@@ -36,6 +36,21 @@ $foreground-color: black;
 $calendar-border: $foreground-color;
 */
 
+.player-control {
+  background-color: $base-background-color;
+  border-radius: 2em;
+  padding-left: 15px;
+  padding-right: 3px;
+}
+
+.music-art {
+  margin-top: 4px;
+  margin-right: 3px;
+}
+
+.music-title {
+}
+
 .bar {
     background-color: rgba($dark-background-color, 1);
     border-radius: 2em;
@@ -45,6 +60,10 @@ $calendar-border: $foreground-color;
 
 .bar-box {
     border-radius: 25em;
+}
+
+.systray {
+  background-color: white;
 }
 
 .end-box {

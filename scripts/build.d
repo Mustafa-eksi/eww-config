@@ -14,6 +14,8 @@ bool compile(string filename, string[] extra_arg=[]) {
 int main() {
     if (!compile("calendar.d", ["-L-lsqlite3"])) return -1;
     if (!compile("workspaces.d")) return -1;
+    if (!compile("player.d")) return -1;
+    if (!compile("playerctlstatus.d")) return -1;
     writeln("Compilation successful");
     return 0;
 }
