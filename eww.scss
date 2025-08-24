@@ -63,7 +63,10 @@ $calendar-border: $foreground-color;
 }
 
 .systray {
-  background-color: white;
+  background-color: $base-background-color;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 2em;
 }
 
 .end-box {
@@ -159,12 +162,46 @@ button {
     font-size: 16px;
 }
 
+.launcher-input {
+  background-color: $base-background-color;
+  color: $foreground-color;
+  border-style: none;
+}
+
+.launcher-list {
+  padding: 10px;
+}
+
+button:hover {
+  background-color: $active-background-color;
+}
+
+.inactive-workspace:hover {
+    background: $base-background-color;
+}
+
 .active-workspace {
     background-color: $active-background-color;
 }
 
+.active-workspace:hover {
+    background-color: $active-background-color;
+}
 .confirmexit-box {
     background-color: $dark-background-color;
     padding: 20px;
 }
 
+.launcher-text {
+  color: $foreground-color;
+}
+
+.launcher-box {
+  background-color: $dark-background-color;
+}
+
+.launcher-first {
+  background-color: $active-background-color;
+  border-radius: 2em;
+  padding: 5px;
+}

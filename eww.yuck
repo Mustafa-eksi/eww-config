@@ -1,17 +1,20 @@
+(include "./launcher.yuck")
+
+
 (defpoll timedata
-    :interval "5s"
+    :interval "20s"
     :initial "Clock"
     :run-while true
 `date +%H:%M`)
 
 (defpoll volumevar
-    :interval "1s"
+    :interval "3s"
     :initial "0"
     :run-while true
 `amixer -D pipewire sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%' | head -1`)
 
 (defpoll workspacesvar
-    :interval "0.1s"
+    :interval "0.2s"
     :initial "0"
     :run-while true
 `./scripts/workspaces`)
@@ -23,13 +26,13 @@
     `./scripts/calendar`)
 
 (defpoll playerstatus
-    :interval "0.1s"
+    :interval "1s"
     :initial "No players found!"
     :run-while true
     `./scripts/playerctlstatus`)
 
 (defpoll playericonname
-    :interval "0.1s"
+    :interval "5s"
     :initial `(label :text "error")`
     :run-while true
     `./scripts/player`)
@@ -75,7 +78,7 @@
                         :width "99.7%"
                         :height "3%"
                         :anchor "top center")
-    :stacking "fg"
+    :stacking "overlay"
     :reserve (struts :distance "3%" :side "top")
     :exclusive true
 (box :orientation "horizontal" :class "bar-box"
@@ -89,12 +92,12 @@
     (clock))
 
     (box :class "end-box" :space-evenly false :halign "end" :spacing 5
-        (systray :icon-size 20)
+        (systray :class "systray" :icon-size 20)
         (box :visible {playerstatus != "No players found"} :class "player-control" :spacing 5 :space-evenly false
             (literal :content playericonname)
-            (button :halign "end" :onclick "playerctl previous" "")
+            (button :halign "end" :onclick "playerctl previous" " ")
             (button :halign "end" :onclick "playerctl play-pause" {playerstatus == "Playing" ? "" : ""})
-            (button :halign "end" :onclick "playerctl next" "")
+            (button :halign "end" :onclick "playerctl next" " ")
         )
         (box :spacing 5 :space-evenly false :halign "end"
             (button :halign "end" "  %${volumevar}")

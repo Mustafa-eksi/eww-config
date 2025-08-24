@@ -16,6 +16,7 @@ int main() {
     if (!compile("workspaces.d")) return -1;
     if (!compile("player.d")) return -1;
     if (!compile("playerctlstatus.d")) return -1;
+    if (!compile("launcher.d")) return -1;
     writeln("Compilation successful");
     return 0;
 }
