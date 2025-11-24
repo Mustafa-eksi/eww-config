@@ -1,6 +1,5 @@
 (include "./launcher.yuck")
 
-
 (defpoll timedata
     :interval "20s"
     :initial "Clock"
@@ -74,12 +73,12 @@
 (defwindow bar
     :monitor 0
     :geometry (geometry :x "0%"
-                        :y "0.3%"
-                        :width "99.7%"
-                        :height "3%"
+                        :y "0%"
+                        :width "100%"
+                        :height "1%"
                         :anchor "top center")
     :stacking "overlay"
-    :reserve (struts :distance "3%" :side "top")
+    :reserve (struts :distance "1%" :side "top")
     :exclusive true
 (box :orientation "horizontal" :class "bar-box"
 
@@ -92,7 +91,7 @@
     (clock))
 
     (box :class "end-box" :space-evenly false :halign "end" :spacing 5
-        (systray :class "systray" :icon-size 20 :spacing 5)
+        (systray :class "systray" :icon-size 16 :spacing 5)
         (box :visible {playerstatus != "No players found"} :class "player-control" :spacing 5 :space-evenly false
             (literal :content playericonname)
             (button :halign "end" :onclick "playerctl previous" " ")

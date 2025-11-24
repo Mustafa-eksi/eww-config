@@ -1,3 +1,12 @@
+// real black
+$dark-background-color: #181818;
+$base-background-color: #181818;//#001f26;
+$active-background-color: #197829;
+$secondary-background-color: #00a658;
+$foreground-color: white;
+$calendar-border: $base-background-color;
+$text-size: 16px;
+
 // Tokyo night
 /*
 $dark-background-color: #1a1b26;
@@ -9,12 +18,14 @@ $calendar-border: $base-background-color;
 */
 
 // Made up green
+/*
 $dark-background-color: #002106;
 $base-background-color: #00380a;
 $active-background-color: #197829;
 $secondary-background-color: #228eb5;
 $foreground-color: #b5ffc2;
 $calendar-border: $base-background-color;
+*/
 
 // Original black
 /*
@@ -38,14 +49,13 @@ $calendar-border: $foreground-color;
 
 .player-control {
   background-color: $base-background-color;
-  border-radius: 2em;
   padding-left: 15px;
   padding-right: 3px;
 }
 
 .music-art {
-  margin-top: 4px;
-  margin-right: 3px;
+ // margin-top: 4px;
+ // margin-right: 3px;
 }
 
 .music-title {
@@ -53,13 +63,10 @@ $calendar-border: $foreground-color;
 
 .bar {
     background-color: rgba($dark-background-color, 1);
-    border-radius: 2em;
     color: $foreground-color;
-    padding: 2px;
 }
 
 .bar-box {
-    border-radius: 25em;
 }
 
 .systray {
@@ -73,9 +80,8 @@ $calendar-border: $foreground-color;
 .my-clock {
     padding-left: 10px;
     padding-right: 10px;
-    border-radius: 2em;
     background-color: $base-background-color;
-    font-size: 20px;
+    font-size: $text-size;
 }
 
 .gtk-calendar {
@@ -151,13 +157,13 @@ $calendar-border: $foreground-color;
 }
 button {
     border-width: 0;
-    border-radius: 2em;
     background: $base-background-color;
     text-shadow: none;
     color: $foreground-color;
     outline-width: 0;
     box-shadow: none;
-    font-size: 16px;
+    font-size: $text-size;
+    border-radius: 0px;
 }
 
 .launcher-input {
@@ -200,6 +206,8 @@ button:hover {
 
 .launcher-first {
   background-color: $active-background-color;
-  border-radius: 2em;
   padding: 5px;
+}
+.systray {
+  margin-right: 5px;
 }
