@@ -63,10 +63,8 @@ $calendar-border: $foreground-color;
 }
 
 .systray {
-  background-color: $base-background-color;
-  padding-right: 10px;
-  padding-left: 10px;
-  border-radius: 2em;
+  background-color: $dark-background-color;
+  min-width: 0px;
 }
 
 .end-box {

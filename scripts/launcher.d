@@ -5,8 +5,7 @@ import std.string: split, startsWith, strip, toLower, endsWith, join;
 import std.algorithm.mutation : remove;
 import std.algorithm.searching : find, canFind;
 
-struct DesktopEntry {
-    char[] name;
+struct DesktopEntry { char[] name;
     char[] exec;
     char[] icon;
     string filepath;
@@ -72,7 +71,7 @@ void main(string[] args) {
         auto iconpath = iconfiles.find!(e => e.endsWith(entry.icon~".png"));
         if (iconpath.length != 0)
             finalwidget ~= `   (image :image-width 24 :image-height 24 :path "`~iconpath[0]~`")`;
-        finalwidget ~= `   (button :class "launcher-text" :onclick 'hyprctl dispatch exec "`~entry.exec~`"' "`~entry.name~`")`;
+        finalwidget ~= `   (button :class "launcher-text" :onclick 'hyprctl dispatch exec "`~entry.exec~` && eww close launcher"' "`~entry.name~`")`;
         finalwidget ~= `)`;
     }
     finalwidget ~= `)`;

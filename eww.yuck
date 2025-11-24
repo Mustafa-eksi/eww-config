@@ -92,7 +92,7 @@
     (clock))
 
     (box :class "end-box" :space-evenly false :halign "end" :spacing 5
-        (systray :class "systray" :icon-size 20)
+        (systray :class "systray" :icon-size 20 :spacing 5)
         (box :visible {playerstatus != "No players found"} :class "player-control" :spacing 5 :space-evenly false
             (literal :content playericonname)
             (button :halign "end" :onclick "playerctl previous" " ")
