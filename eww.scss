@@ -6,6 +6,8 @@ $secondary-background-color: #00a658;
 $foreground-color: white;
 $calendar-border: $base-background-color;
 $text-size: 16px;
+$font-family: IosevkaTermNerdFont, monospace;
+$font-weight: normal;
 
 // Tokyo night
 /*
@@ -54,11 +56,14 @@ $calendar-border: $foreground-color;
 }
 
 .music-art {
+  margin-top: 3px;
  // margin-top: 4px;
  // margin-right: 3px;
 }
 
 .music-title {
+  font-family: $font-family;
+  font-weight: $font-weight;
 }
 
 .bar {
@@ -82,6 +87,8 @@ $calendar-border: $foreground-color;
     padding-right: 10px;
     background-color: $base-background-color;
     font-size: $text-size;
+    font-weight: $font-weight;
+    font-family: $font-family;
 }
 
 .gtk-calendar {
@@ -163,6 +170,8 @@ button {
     outline-width: 0;
     box-shadow: none;
     font-size: $text-size;
+    font-family: $font-family;
+    font-weight: $font-weight;
     border-radius: 0px;
 }
 
@@ -173,6 +182,25 @@ button {
 }
 
 .launcher-list {
+  padding: 10px;
+}
+
+.launcher-list:focus {
+  background-color: #FF0000;
+  padding: 10px;
+}
+.launcher-list:selected {
+  background-color: #FF0000;
+  padding: 10px;
+}
+
+.launcher-list:hover {
+  background-color: #FF0000;
+  padding: 10px;
+}
+
+.launcher-text:focus {
+  background-color: $active-background-color;
   padding: 10px;
 }
 
@@ -203,11 +231,43 @@ button:hover {
 .launcher-box {
   background-color: $dark-background-color;
 }
+.launcher-element:focus-within {
+  background-color: $active-background-color;
+}
 
 .launcher-first {
   background-color: $active-background-color;
   padding: 5px;
 }
 .systray {
-  margin-right: 5px;
+}
+.battery-charging {
+  padding-left: 3px;
+  padding-right: 3px;
+  background-color: $active-background-color;
+}
+.battery-normal {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.battery-low {
+  padding-left: 3px;
+  padding-right: 3px;
+  background-color: #c91610;
+}
+
+.launcher-check {
+  opacity: 0;
+  
+}
+.launcher-el-input {
+  background-color: transparent;
+  color: $foreground-color;
+  border: none;
+  box-shadow: none;   /* Removes the inner shadow/depth */
+  outline: none;      /* Removes the focus outline */
+}
+.launcher-el-input:selected {
+      background-color: $active-background-color;
 }

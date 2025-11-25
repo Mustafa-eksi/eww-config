@@ -36,6 +36,18 @@
     :run-while true
     `./scripts/player`)
 
+(defpoll batterytime
+    :interval "1min"
+    :initial "Error"
+    :run-while true
+    `upower -b | grep "time to empty" | awk '{print $4 " " $5}'`)
+
+(defpoll batteryiconname
+    :interval "1min"
+    :initial "error"
+    :run-while true
+    `upower -b | grep "icon-name" | cut -d"'" -f2`)
+
 (defwidget clock [] (button :onclick `eww open --toggle takvim` :class "my-clock" (label :text timedata)))
 
 (defwindow takvim
@@ -101,7 +113,10 @@
         (box :spacing 5 :space-evenly false :halign "end"
             (button :halign "end" "  %${volumevar}")
             (button :halign "end" "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}°C")
-            (button :halign "end" "%${EWW_BATTERY.BAT0.capacity}")
+            (box :spacing 5 :space-evenly false  :halign "end" :class {batteryiconname == "battery-full-charging-symbolic" ? "battery-charging" : batteryiconname == "battery-low-symbolic" ? "battery-low" : "battery-normal"}
+                (image :icon "${batteryiconname}")
+                (label :tooltip "${batterytime}" :text "%${EWW_BATTERY.BAT0.capacity}")
+            )
             (button :halign "end" :onclick `eww open --toggle confirmexit` "⏻ ")
         )
     )

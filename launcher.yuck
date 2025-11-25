@@ -1,4 +1,4 @@
-(defvar launcher_text "")
+(defvar launcher_text "thun")
 
 (defvar launcher_body `(label :class "launcher-text" :text "No results")`)
 
@@ -9,10 +9,11 @@
                         :width "40%"
                         :height "30%"
                         :anchor "center")
-    :stacking "overlay"
     :focusable true
     (box :class "launcher-box" :orientation "v" :space-evenly false
         (input :class "launcher-input" :value launcher_text :onaccept `./scripts/launcher "{}" --launch && eww close launcher` :onchange `./scripts/launcher "{}"`)
-        (literal :content launcher_body)
+        (scroll :vexpand true :vscroll true
+            (literal :content launcher_body)
+        )
     )
 )

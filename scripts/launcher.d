@@ -5,7 +5,8 @@ import std.string: split, startsWith, strip, toLower, endsWith, join;
 import std.algorithm.mutation : remove;
 import std.algorithm.searching : find, canFind;
 
-struct DesktopEntry { char[] name;
+struct DesktopEntry {
+    char[] name;
     char[] exec;
     char[] icon;
     string filepath;
@@ -64,14 +65,15 @@ void main(string[] args) {
 
     string finalwidget;
     // Generate yuck
-    finalwidget ~= `(box :class "launcher-list" :orientation "v" :space-evenly false :spacing 5 `;
+    finalwidget ~= `(box :active true :class "launcher-list" :orientation "v" :space-evenly false :spacing 5 `;
     foreach(i, entry; entries) {
-        finalwidget ~= `(box :height 24 :orientation "h" :space-evenly false :spacing 10`;
-        if (i == 0) finalwidget ~= ` :class "launcher-first"`;
+        finalwidget ~= `(box :class "launcher-element" :height 24 :orientation "h" :space-evenly false :spacing 10`;
+        //if (i == 0) finalwidget ~= ` :class "launcher-first"`;
         auto iconpath = iconfiles.find!(e => e.endsWith(entry.icon~".png"));
         if (iconpath.length != 0)
             finalwidget ~= `   (image :image-width 24 :image-height 24 :path "`~iconpath[0]~`")`;
-        finalwidget ~= `   (button :class "launcher-text" :onclick 'hyprctl dispatch exec "`~entry.exec~` && eww close launcher"' "`~entry.name~`")`;
+        finalwidget ~= `   (input :class "launcher-el-input" :onaccept 'hyprctl dispatch exec "`~entry.exec~`" && eww close launcher' :value "`~entry.name~`")`;
+        //finalwidget ~= `   (checkbox :active true :class "launcher-check" :onchecked 'hyprctl dispatch exec "`~entry.exec~`" && eww close launcher')`;
         finalwidget ~= `)`;
     }
     finalwidget ~= `)`;
